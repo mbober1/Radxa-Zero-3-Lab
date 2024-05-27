@@ -2,10 +2,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI += "\
 	file://rk3566-radxa-zero-3e.dts \
-	file://fragment1.cfg \
-	file://fragment2.cfg \
-	file://fragment3.cfg \
-	file://fragment4.cfg \
+	file://drm.cfg \
+	file://cleanup.cfg \
 "
 
 COMPATIBLE_MACHINE:radxa-zero-3e = "radxa-zero-3e"

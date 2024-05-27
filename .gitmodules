@@ -13,3 +13,6 @@
 [submodule "sources/meta-arm"]
 	path = sources/meta-arm
 	url = git://git.yoctoproject.org/meta-arm
+[submodule "sources/meta-qt5"]
+	path = sources/meta-qt5
+	url = git://code.qt.io/yocto/meta-qt5.git
