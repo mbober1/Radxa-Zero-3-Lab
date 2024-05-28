@@ -1,0 +1,1 @@
+COMPATIBLE_MACHINE:radxa-zero-3e-mainline = "radxa-zero-3e-mainline"
