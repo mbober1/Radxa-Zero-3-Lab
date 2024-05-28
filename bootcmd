@@ -1,0 +1,17 @@
+load mmc 1:7 $loadaddr /boot/fitImage
+load mmc 1:7 $fdt_addr_r /boot/rk3566-radxa-zero-3e.dtb
+setenv bootargs root=/dev/mmcblk1p7 rootwait console=ttyS2,1500000n8 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memoryquiet splash 
+bootm $loadaddr - $fdt_addr_r
+
+
+load mmc 1:7 $loadaddr /boot/vmlinuz-6.1.0-1013-rockchip
+load mmc 1:7 $fdt_addr_r /boot/rk3566-radxa-zero3-ap6212.dtb
+setenv bootargs root=/dev/mmcblk1p7 rootwait console=ttyS2,1500000n8 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memoryquiet splash 
+booti $loadaddr - $fdt_addr_r
+
+bootargs= root=PARTUUID=00225501-f1d8-4813-b3ad-9c44573ea9ad rootwait console=tty1 console=ttyS2,1500000n8 rw rootfstype=ext4 init=/sbin/init
+
+
+
+load mmc 1:1 $loadaddr /boot/fitImage-6.1.43-yocto-standard-custom
+load mmc 1:1 $fdt_addr_r /usr/lib/firmware/6.1.0-1013-rockchip/device-tree/rockchip/rk3566-radxa-zero3-ap6212.dtb

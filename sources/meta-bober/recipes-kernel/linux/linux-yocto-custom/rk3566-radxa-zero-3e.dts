@@ -12,12 +12,20 @@
 / {
 	model = "Radxa ZERO 3";
 	compatible = "radxa,zero-3e", "radxa,zero3", "rockchip,rk3566";
+
+
+	gpio_leds: gpio-leds {
+		compatible = "gpio-leds";
+		status = "okay";
+
+		board-led {
+			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
+			pinctrl-0 = <&board_led>;
+			linux,default-trigger = "activity";
+		};
+	};
 };
 
-&rgmii_phy1 {
-	status = "okay";
-};
-
-&gmac1 {
-	status = "okay";
+&hdmi_in_vp0 {
+	status = "disabled";
 };
