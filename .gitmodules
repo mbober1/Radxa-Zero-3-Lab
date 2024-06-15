@@ -16,3 +16,6 @@
 [submodule "sources/meta-qt5"]
 	path = sources/meta-qt5
 	url = git://code.qt.io/yocto/meta-qt5.git
+[submodule "sources/meta-rockchip-radxa"]
+	path = sources/meta-rockchip-radxa
+	url = https://github.com/radxa/meta-rockchip.git
