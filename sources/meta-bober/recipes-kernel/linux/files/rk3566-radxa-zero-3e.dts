@@ -14,7 +14,14 @@
 	model = "Radxa Bober Edition";
 	compatible = "radxa,zero-3e", "radxa,zero3", "rockchip,rk3566";
 
-
+	w1: onewire {
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_onewire>;
+		compatible = "w1-gpio";
+		gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
+		status = "okay";
+	};
+	
 	gpio_leds: gpio-leds {
 		compatible = "gpio-leds";
 		status = "okay";
@@ -137,6 +144,12 @@
 	usb {
 		vcc5v0_usb30_en: vcc5v0-host-en {
 			rockchip,pins = <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+	};
+
+	onewire {
+		pinctrl_onewire: onewire-1 {
+			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 
