@@ -10,3 +10,6 @@
 [submodule "sources/meta-qt5"]
 	path = sources/meta-qt5
 	url = git://code.qt.io/yocto/meta-qt5.git
+[submodule "sources/meta-rockchip"]
+	path = sources/meta-rockchip
+	url = git://git.yoctoproject.org/meta-rockchip
