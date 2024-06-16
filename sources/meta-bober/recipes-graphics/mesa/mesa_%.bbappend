@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = " kmsro panfrost"
+PACKAGECONFIG:append:rk3566 = " kmsro panfrost"
