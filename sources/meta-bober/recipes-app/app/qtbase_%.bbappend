@@ -1,2 +1,2 @@
-PACKAGECONFIG:append =  " dbus evdev widgets tools libs linuxfb gles2 \
-    examples teststools accessibility eglfs fontconfig tslib"
+PACKAGECONFIG:append:rk3566 = " eglfs gles2 kms gbm fontconfig journald libinput"
+PACKAGECONFIG:remove = " tests examples"
