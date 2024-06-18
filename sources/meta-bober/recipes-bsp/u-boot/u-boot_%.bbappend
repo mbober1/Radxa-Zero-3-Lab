@@ -1,5 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI:append = "\
-	file://fragment.cfg \
+	file://quickstart.cfg \
+	file://splash.cfg \
 "

@@ -1,0 +1,26 @@
+From 690e027f722dfc2b0fff90045e7c9f9b3c66551d Mon Sep 17 00:00:00 2001
+From: Marcin Bober <mbober@compiler.lan>
+Date: Sat, 15 Jun 2024 14:03:23 +0000
+Subject: [PATCH] change-bg-color
+Upstream-Status: Inappropriate
+
+---
+ psplash-colors.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/psplash-colors.h b/psplash-colors.h
+index 82a9893..bcc5334 100644
+--- a/psplash-colors.h
++++ b/psplash-colors.h
+@@ -12,7 +12,7 @@
+ #define _HAVE_PSPLASH_COLORS_H
+ 
+ /* This is the overall background color */
+-#define PSPLASH_BACKGROUND_COLOR 0xec,0xec,0xe1
++#define PSPLASH_BACKGROUND_COLOR 0xe0,0xec,0xec
+ 
+ /* This is the color of any text output */
+ #define PSPLASH_TEXT_COLOR 0x6d,0x6d,0x70
+-- 
+2.34.1
+

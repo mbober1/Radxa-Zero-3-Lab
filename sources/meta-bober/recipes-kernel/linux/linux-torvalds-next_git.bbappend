@@ -2,6 +2,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI:append = "\
 	file://fragment.cfg \
+	file://fragment2.cfg \
+	file://fragment3.cfg \
 	file://0001-add-onewire-bus.patch \
 "
 

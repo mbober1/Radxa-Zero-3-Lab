@@ -1,0 +1,25 @@
+software =
+{
+        version = "0.1.0";
+        description = "Firmware update for Radxa Zero 3e";
+
+        hardware-compatibility: [ "1.0" ];
+
+        files: (
+                {
+									filename = "lab-image-radxa-zero-3e-custom.rootfs.tar.zst";
+									type = "archive";
+									device = "/dev/update";
+									filesystem = "ext4";
+									preserve-attributes = true;
+									path = "/";
+                }
+        );
+
+        scripts: (
+                {
+									filename = "update.sh";
+									type = "shellscript";
+                }
+        );
+}

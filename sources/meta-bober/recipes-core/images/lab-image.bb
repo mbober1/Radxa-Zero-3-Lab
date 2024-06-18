@@ -11,8 +11,8 @@ INIT_MANAGER = "systemd"
 
 IMAGE_FEATURES:append = " \
   hwcodecs \
-  splash \
   package-management \
+  splash \
 "
 
 IMAGE_INSTALL:append = " \
@@ -20,15 +20,19 @@ IMAGE_INSTALL:append = " \
   kernel \
   kernel-devicetree \
   kernel-modules \
+	swupdate \
+	swupdate-www \
+	swupdate-client \
+	swupdate-tools \
   nano \
   htop \
   openssh \
   e2fsprogs \
-  plymouth \
-  glmark2 \
-  kmscube \
   openssl \
   rsync \
+  qt-app \
+  qt-app-service \
+  psplash \
 "
 
 EXTRA_IMAGE_FEATURES = " \

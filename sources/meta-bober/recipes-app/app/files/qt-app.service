@@ -1,0 +1,8 @@
+[Unit]
+Description=Qt Test App
+
+[Service]
+ExecStart=/usr/bin/qt_test -platform eglfs
+
+[Install]
+WantedBy=multi-user.target
