@@ -4,6 +4,9 @@ if [ $# -lt 1 ]; then
 	exit 0;
 fi
 
+FIRST_PART="8"
+SECOND_PART="9"
+
 function get_current_root_device
 {
 	for i in `cat /proc/cmdline`; do
@@ -12,28 +15,28 @@ function get_current_root_device
 		fi
 	done
 
-	#returns PARTLABEL=rootfsX
+	# CURRENT_ROOT == /dev/mmcblkXpY
+}
+
+function get_update_part
+{
+	CURRENT_PART="${CURRENT_ROOT: -1}"
+	if [ $CURRENT_PART = $FIRST_PART ]; then
+		UPDATE_PART=$SECOND_PART;
+	else
+		UPDATE_PART=$FIRST_PART;
+	fi
 }
 
 function get_update_device
 {
-	if [ $CURRENT_ROOT = "PARTLABEL=rootfsA" ]; then
-		UPDATE_ROOT="/dev/disk/by-label/rootfsB";
-		UPDATE_LABEL="rootfsB";
-		CURRENT_LABEL="rootfsA";
-	else
-		UPDATE_ROOT="/dev/disk/by-label/rootfsA";
-		UPDATE_LABEL="rootfsA";
-		CURRENT_LABEL="rootfsB";
-	fi
-
-	#returns PARTLABEL=rootfsA or PARTLABEL=rootfsB
+	UPDATE_ROOT=${CURRENT_ROOT%?}${UPDATE_PART}
 }
 
 function format_update_device
 {
 	umount $UPDATE_ROOT || true
-	mkfs.ext4 $UPDATE_ROOT -q -F -m0 -L ${UPDATE_LABEL}
+	mkfs.ext4 $UPDATE_ROOT -q -F -m0 -L rootfs${UPDATE_PART}
 }
 
 if [ $1 == "preinst" ]; then
@@ -43,6 +46,7 @@ if [ $1 == "preinst" ]; then
 	get_current_root_device
 
 	# get the device to be updated
+	get_update_part
 	get_update_device
 
 	# format the device to be updated
@@ -54,12 +58,7 @@ fi
 
 if [ $1 == "postinst" ]; then
 
-	# get the current root device
-	get_current_root_device
+	# change bootable flag
+	((echo "x"; echo "A"; echo $FIRST_PART; echo "A"; echo $SECOND_PART; echo "r"; echo "w") | fdisk /dev/mmcblk0)
 
-	# get the device to be updated
-	get_update_device
-
-	# change extlinux.conf to boot from the updated device 
-	sed -i "s/$CURRENT_LABEL/$UPDATE_LABEL/g" /boot/extlinux/extlinux.conf
 fi
