@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 inherit core-image
 inherit populate_sdk_qt5
 
-IMAGE_LINGUAS = "pl-pl"
+IMAGE_LINGUAS = "en-us en-gb"
 
 PACKAGE_CLASSES = "package_ipk"
 INIT_MANAGER = "systemd"
@@ -76,6 +76,7 @@ IMAGE_FEATURES:append = " \
   hwcodecs \
   package-management \
   splash \
+  read-only-rootfs \
 "
 
 IMAGE_INSTALL:append = " \
