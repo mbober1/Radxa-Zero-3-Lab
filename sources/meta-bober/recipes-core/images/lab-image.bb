@@ -28,7 +28,6 @@ QT_TOOLS = " \
 FONTS = " \
   fontconfig \
   fontconfig-utils \
-  liberation-fonts \
 "
 
 QT_DEV_TOOLS = " \
@@ -53,28 +52,17 @@ UTILITIES_INSTALL = " \
   ppp \
 "
 
-TSLIB = " \
-  tslib \
-  tslib-calibrate \
-  tslib-conf \
-  tslib-dev \
-  tslib-tests \
-"
- 
 IMAGE_INSTALL += " \
   ${SYSTEM_TOOLS_INSTALL} \
   ${QT_TOOLS} \
   ${FONTS} \
-  ${QT_DEV_TOOLS} \
   ${KERNEL_EXTRA_INSTALL} \
   ${UTILITIES_INSTALL} \
-  ${TSLIB} \
 "
 
 
 IMAGE_FEATURES:append = " \
   hwcodecs \
-  package-management \
   splash \
   read-only-rootfs \
 "
@@ -100,10 +88,12 @@ IMAGE_INSTALL:append = " \
 
 EXTRA_IMAGE_FEATURES = " \
   debug-tweaks \
-  tools-sdk \
   tools-debug \
   ssh-server-openssh \
 "
+
+BAD_RECOMMENDATIONS += "udev-hwdb"
+
 
 #Always add cmake to sdk
 TOOLCHAIN_HOST_TASK:append = " nativesdk-cmake"
