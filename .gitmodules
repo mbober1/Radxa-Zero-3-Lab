@@ -16,3 +16,6 @@
 [submodule "sources/meta-swupdate"]
 	path = sources/meta-swupdate
 	url = https://github.com/sbabic/meta-swupdate.git
+[submodule "sources/meta-clang"]
+	path = sources/meta-clang
+	url = https://github.com/kraj/meta-clang.git
