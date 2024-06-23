@@ -1,0 +1,9 @@
+[Unit]
+Description=Resize data partition
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/resize-datafs start
+
+[Install]
+WantedBy=multi-user.target

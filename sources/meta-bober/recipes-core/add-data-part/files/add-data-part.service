@@ -1,9 +1,0 @@
-[Unit]
-Description=Add data partition
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/add-data-part start
-
-[Install]
-WantedBy=multi-user.target

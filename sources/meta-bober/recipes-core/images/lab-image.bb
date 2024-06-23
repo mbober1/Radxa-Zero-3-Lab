@@ -81,9 +81,16 @@ IMAGE_INSTALL:append = " \
   rsync \
   qt-app \
   qt-app-service \
-  psplash \
   libubootenv \
   network-config-misc \
+  resize-datafs \
+  util-linux \
+  e2fsprogs \
+  e2fsprogs-tune2fs \
+  e2fsprogs-resize2fs \
+  defuser \
+  sudo \
+  roboto-font \
 "
 
 EXTRA_IMAGE_FEATURES = " \
