@@ -10,30 +10,6 @@ IMAGE_LINGUAS = "en-us en-gb"
 PACKAGE_CLASSES = "package_ipk"
 INIT_MANAGER = "systemd"
 
-SYSTEM_TOOLS_INSTALL = " \
-  i2c-tools \
-  memtester \
-  sysbench \
-  tzdata \
-  devmem2 \
-  minicom \
-"
-
-QT_TOOLS = " \
-  qtbase \
-  qtbase-plugins \
-"
-
-FONTS = " \
-  fontconfig \
-  fontconfig-utils \
-"
-
-QT_DEV_TOOLS = " \
-  qtbase-dev \
-  qtbase-mkspecs \
-  qtbase-tools \
-"
 
 KERNEL_EXTRA_INSTALL = " \
   kernel \
@@ -41,32 +17,12 @@ KERNEL_EXTRA_INSTALL = " \
   kernel-modules \
 "
 
-UTILITIES_INSTALL = " \
-  coreutils \
-  gdbserver \
-  ldd \
-  libstdc++ \
-  libstdc++-dev \
-  openssh-sftp \
-  ppp \
+IMAGE_FEATURES:append = " \
+  hwcodecs \
 "
 
 IMAGE_INSTALL += " \
-  ${SYSTEM_TOOLS_INSTALL} \
-  ${QT_TOOLS} \
-  ${FONTS} \
   ${KERNEL_EXTRA_INSTALL} \
-  ${UTILITIES_INSTALL} \
-"
-
-
-IMAGE_FEATURES:append = " \
-  hwcodecs \
-  splash \
-  read-only-rootfs \
-"
-
-IMAGE_INSTALL:append = " \
   packagegroup-core-boot \
 	swupdate \
 	swupdate-www \
@@ -80,14 +36,13 @@ IMAGE_INSTALL:append = " \
   rsync \
   libubootenv \
   network-config-misc \
-  resize-datafs \
   util-linux \
   e2fsprogs \
   e2fsprogs-tune2fs \
   e2fsprogs-resize2fs \
-  defuser \
-  sudo \
-  roboto-font \
+  docker \
+  docker-compose \
+  dhcpcd \
 "
 
 EXTRA_IMAGE_FEATURES = " \

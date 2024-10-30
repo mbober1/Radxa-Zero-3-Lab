@@ -3,6 +3,7 @@ From: Marcin Bober <mbober1@gmail.com>
 Date: Wed, 19 Jun 2024 05:11:28 +0000
 Subject: [PATCH] add peripherals
 
+Upstream-Status: Inappropriate
 Signed-off-by: Marcin Bober <mbober1@gmail.com>
 ---
  .../dts/rockchip/rk3566-radxa-zero-3e.dts     | 25 +++++++++++++++++++

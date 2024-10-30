@@ -3,6 +3,7 @@ From: Marcin Bober <mbober1@gmail.com>
 Date: Wed, 19 Jun 2024 11:13:27 +0000
 Subject: [PATCH] Fix gmac phy mode to rgmii
 
+Upstream-Status: Inappropriate
 Signed-off-by: Marcin Bober <mbober1@gmail.com>
 ---
  arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3e.dts | 5 ++++-

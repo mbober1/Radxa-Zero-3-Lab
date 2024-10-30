@@ -1,8 +1,0 @@
-[Unit]
-Description=Qt Test App
-
-[Service]
-ExecStart=/usr/bin/cube -platform eglfs
-
-[Install]
-WantedBy=sysinit.target

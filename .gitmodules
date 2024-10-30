@@ -19,3 +19,6 @@
 [submodule "sources/meta-clang"]
 	path = sources/meta-clang
 	url = https://github.com/kraj/meta-clang.git
+[submodule "sources/meta-virtualization"]
+	path = sources/meta-virtualization
+	url = git://git.yoctoproject.org/meta-virtualization
