@@ -1,0 +1,27 @@
+# Container image manifest for Yocto Project recipe container-image_0.1.bb
+#
+# The manifest specifies one image per line. Lines that start with `#` are comments. Empty
+# lines can be used to improve readability.
+#
+# The image lines have the following fields:
+#
+# image     platform    version     registry        localname   localversion
+#
+# `image` is the name of the container image
+#
+# `platform` is of <os>/<arch>; if set to `-` it will be determined by
+# TARGET_OS and TARGET_ARCH
+#
+# `version` is the version of the container image; if set to `-` `latest` will be used
+#
+# `registry` is the registry URL in the form of <url>:<port>, e.g.
+# for DockerHub docker.io; if set to `-` `docker.io` will be used
+#
+# `localname` and `localversion` are the name and version tags to be used locally;
+# if set to `-` `image` and `version` will be used respectively
+
+# image     platform    version     registry        localname   localversion
+
+alpine      linux/arm64 latest      -               swissalps   goldfinger
+busybox     -           -           -               busybee     -
+

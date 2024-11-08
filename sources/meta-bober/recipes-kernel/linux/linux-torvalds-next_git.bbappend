@@ -7,4 +7,4 @@ SRC_URI:append = "\
 	file://0001-build-dtbo.patch \
 "
 
-SRCREV = "a39230ecf6b3057f5897bc4744a790070cfbe7a8"
+SRCREV = "c88416ba074a8913cf6d61b789dd834bbca6681c"

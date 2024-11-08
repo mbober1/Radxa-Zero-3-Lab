@@ -40,9 +40,11 @@ IMAGE_INSTALL += " \
   e2fsprogs \
   e2fsprogs-tune2fs \
   e2fsprogs-resize2fs \
+  container-images \
   docker \
   docker-compose \
-  dhcpcd \
+  systemd-analyze \
+  nerdctl \
 "
 
 EXTRA_IMAGE_FEATURES = " \
