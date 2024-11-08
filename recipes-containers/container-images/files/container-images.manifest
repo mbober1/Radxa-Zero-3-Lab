@@ -24,4 +24,4 @@
 
 alpine      linux/arm64 latest      -               swissalps   goldfinger
 busybox     -           -           -               busybee     -
-
+nodered/node-red -      latest      -               nodered     -

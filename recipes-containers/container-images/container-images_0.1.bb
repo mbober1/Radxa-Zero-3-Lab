@@ -100,7 +100,7 @@ do_create_archive() {
             printf "${localname}:${localversion}\n" >> ${WORKDIR}/${manifest}.target
         done
         #echo ${images}
-        PATH=/usr/bin:${PATH} docker save ${images} | zstd -o ${WORKDIR}/${CONTAINER_ARCHIVE}
+        PATH=/usr/bin:${PATH} docker save ${images} | zstd -f -o ${WORKDIR}/${CONTAINER_ARCHIVE}
     )
 }
 addtask create_archive before do_install after do_tag_image
