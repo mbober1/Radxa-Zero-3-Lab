@@ -1,0 +1,52 @@
+#!/bin/bash
+
+CWD=`pwd`
+
+OEROOT=$PWD/sources/poky
+if [ -e $PWD/sources/oe-core ]; then
+    OEROOT=$PWD/sources/oe-core
+fi
+
+. $OEROOT/oe-init-build-env $CWD/$1 > /dev/null
+
+# if conf/local.conf not generated, no need to go further
+if [ ! -e conf/local.conf ]; then
+    clean_up && return 1
+fi
+
+cat <<EOF >> $PWD/conf/local.conf
+
+MACHINE = "radxa-zero-3e-custom"
+DISTRO = "beaveros"
+INHERIT += "rm_work"
+
+# DL_DIR ?= "/adata/yocto-downloads"
+# SSTATE_DIR ?= "/adata/yocto-sstate-cache"
+# BB_GENERATE_MIRROR_TARBALLS = "1"
+# INHERIT += "buildhistory"
+# BUILDHISTORY_COMMIT = "1"
+
+EOF
+
+LAYERS=" \
+    $CWD/sources/meta-openembedded/meta-oe \
+    $CWD/sources/meta-arm/meta-arm-toolchain \
+    $CWD/sources/meta-arm/meta-arm \
+    $CWD/sources/meta-rockchip \
+    $CWD/sources/meta-openembedded/meta-python \
+    $CWD/sources/meta-openembedded/meta-networking \
+    $CWD/sources/meta-openembedded/meta-gnome \
+    $CWD/sources/meta-swupdate \
+    $CWD/sources/meta-openembedded/meta-filesystems \
+    $CWD/sources/meta-virtualization \
+    $CWD/sources/meta-clang \
+    $CWD/sources/meta-beaver \
+"
+
+for layer in $LAYERS; do
+    layer_name=`basename $layer`
+    echo "Adding layer $layer_name"
+    bitbake-layers add-layer $layer > /dev/null 2>&1
+done
+
+echo "To start building, run 'bitbake lab-image-minimal-update'"
