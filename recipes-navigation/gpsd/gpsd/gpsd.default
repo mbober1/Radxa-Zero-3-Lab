@@ -1,0 +1,5 @@
+START_DAEMON="true"
+GPSD_OPTIONS="-n"
+DEVICES="/dev/serial/by-path/platform-fe670000.serial"
+USBAUTO="true"
+GPSD_SOCKET="/run/gpsd.sock"
