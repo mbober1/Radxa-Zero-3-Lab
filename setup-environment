@@ -2,9 +2,13 @@
 
 CWD=`pwd`
 
-OEROOT=$PWD/sources/poky
-if [ -e $PWD/sources/oe-core ]; then
+if [ -e $PWD/sources/poky ]; then
+    OEROOT=$PWD/sources/poky
+elif [ -e $PWD/sources/oe-core ]; then
     OEROOT=$PWD/sources/oe-core
+else
+   echo "Cannot find OE-Core! Aborting..."
+   false
 fi
 
 . $OEROOT/oe-init-build-env $CWD/$1 > /dev/null
