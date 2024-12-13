@@ -57,7 +57,7 @@ index 4a830eb09f0b..1d8dcbc14339 100644
 +&{/} {
 +	can_mcp2515_osc: can-mcp2515-osc {
 +		compatible = "fixed-clock";
-+		clock-frequency = <12000000>;
++		clock-frequency = <8000000>;
 +		#clock-cells = <0>;
 +	};
 +};

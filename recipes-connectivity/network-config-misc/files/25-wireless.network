@@ -1,0 +1,5 @@
+[Match]
+Name=wlu1
+
+[Network]
+DHCP=ipv4

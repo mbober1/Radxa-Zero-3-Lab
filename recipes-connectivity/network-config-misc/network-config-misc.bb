@@ -7,7 +7,9 @@ RDEPENDS_${PN} = "systemd systemd-networkd dhcp-client"
 
 SRC_URI += "\
 	file://20-usb.network \
+	file://25-wireless.network \
 	file://30-end0.network \
+	file://80-can.network \
 "
 
 S = "${WORKDIR}/sources"
@@ -17,9 +19,8 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install() {
-        install -d 0755 ${D}/etc/systemd/network
-        install -m 0644 ${S}/20-usb.network ${D}/etc/systemd/network/
-        install -m 0644 ${S}/30-end0.network ${D}/etc/systemd/network/
+	install -d 0755 ${D}/etc/systemd/network
+	install -m 0644 ${S}/*.network ${D}/etc/systemd/network/
 }
 
 FILES_${PN} = "/etc/systemd/network"
