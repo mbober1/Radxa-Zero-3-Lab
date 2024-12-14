@@ -9,7 +9,6 @@ SRC_URI = " \
 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;protocol=https;branch=${BRANCH} \
 	file://rockchip-kmeta;type=kmeta;name=rockchip-kmeta;destsuffix=rockchip-kmeta \
 	git://git.yoctoproject.org/yocto-kernel-cache;type=kmeta;name=meta;branch=yocto-6.12;destsuffix=kernel-meta;protocol=https \
-	file://fit-image.its \
 	file://fragment.cfg \
 	file://gadget.cfg \
 	file://0001-Fix-gmac-phy-mode-to-rgmii.patch \
@@ -18,3 +17,7 @@ SRC_URI = " \
 	${@bb.utils.contains('DISTRO_FEATURES', 'spi', 'file://0001-radxa-zero-3E-Enable-SPI1-spidev.patch', '', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'gps', 'file://0001-radxa-zero-3E-Enable-UART3.patch', '', d)} \
 "
+
+DEPENDS += "lzop-native"
+FIT_KERNEL_COMP_ALG ?= "lzo"
+FIT_KERNEL_COMP_ALG_EXTENSION ?= ".lzo"
